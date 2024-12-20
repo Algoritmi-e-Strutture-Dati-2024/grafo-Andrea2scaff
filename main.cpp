@@ -25,13 +25,17 @@ int main() {
     // NODI ADIACENTI A TORINO
     grafo.nodiAdiacenti("Torino");
 
+    // ARCO MINIMO USCENTE DA TORINO
+    grafo.arcoMinimo("Torino");
+
     // RIMUOVO UN ARCO E RISTAMPO
     grafo.rimuoviArco("Venezia", "Torino");
     grafo.stampa();
 
-    // RIMUOVO UN NOD E RISTAMPO
+    // RIMUOVO UN NODO E RISTAMPO
     grafo.rimuoviNodo("Milano");
     grafo.stampa();
 
     return 0;
 }
+
