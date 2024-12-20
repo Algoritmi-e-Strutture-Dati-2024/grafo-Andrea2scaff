@@ -9,6 +9,10 @@ private:
     int matriceAdiacenza[MAX_NODI][MAX_NODI]; // Matrice di adiacenza
     bool esisteNodo[MAX_NODI]; // Indica se un nodo esiste
     int numeroNodi = 0; // Numero attuale di nodi
+    // funzione nuova
+    int pesoMinimo = INF;
+    T nodoDestinazione;
+    
 
 public:
     // Costruttore
@@ -127,6 +131,31 @@ public:
         }
         return matriceAdiacenza[indiceSorgente][indiceDestinazione] != INF;
     }
+
+    void arcoMinimo(const T& nodo) const {
+    int indice = trovaIndice(nodo);
+    if (indice == -1) {
+        std::cout << "Errore: il nodo non esiste.\n";
+        return;
+    }
+
+    // TROVO L'ARCO CON IL PESO MINIMO
+    for (int i = 0; i < numeroNodi; ++i) {
+        if (esisteNodo[i] && matriceAdiacenza[indice][i] != INF && matriceAdiacenza[indice][i] < pesoMinimo) {
+            pesoMinimo = matriceAdiacenza[indice][i];
+            nodoDestinazione = nodi[i];
+        }
+    }
+
+    // STAMPO IL RISULTATO
+    if (pesoMinimo != INF) {
+        std::cout << "L'arco con il peso minore da " << nodo << " è verso " 
+                  << nodoDestinazione << " con peso " 
+                  << pesoMinimo << ".\n";
+    } else {
+        std::cout << "Non ci sono archi uscenti dal nodo " << nodo << ".\n";
+    }
+}
     
 private:
     // Trova l'indice di un nodo
