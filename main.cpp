@@ -1,17 +1,17 @@
 #include <iostream>
-#include "grafo.cpp"  // Include il file con la definizione della classe Grafo
+#include "Grafo.cpp"  // FILE DI RIFERIMENTO
 
 int main() {
-    Grafo<std::string> grafo; // Crea un grafo di tipo stringa
+    Grafo<std::string> grafo; // GRAFO DI TIPO STRINGA
 
-    // Aggiungi i nodi
+    // NODI
     grafo.aggiungiNodo("Torino");
     grafo.aggiungiNodo("Milano");
     grafo.aggiungiNodo("Genova");
     grafo.aggiungiNodo("Venezia");
     grafo.aggiungiNodo("Firenze");
 
-    // Aggiungi gli archi con i rispettivi pesi (in km)
+    // ARCHI E PESO
     grafo.aggiungiArco("Torino", "Milano", 140);
     grafo.aggiungiArco("Torino", "Genova", 170);
     grafo.aggiungiArco("Milano", "Genova", 270);
@@ -19,17 +19,17 @@ int main() {
     grafo.aggiungiArco("Venezia", "Firenze", 260);
     grafo.aggiungiArco("Venezia", "Torino", 250);
 
-    // Stampa la matrice di adiacenza
+    // MATRICE DI ADIACENZA
     grafo.stampa();
 
-    // Stampa i nodi adiacenti a Torino
+    // NODI ADIACENTI A TORINO
     grafo.nodiAdiacenti("Torino");
 
-    // Rimuove un arco e stampa di nuovo la matrice
+    // RIMUOVO UN ARCO E RISTAMPO
     grafo.rimuoviArco("Venezia", "Torino");
     grafo.stampa();
 
-    // Rimuove un nodo e stampa la matrice
+    // RIMUOVO UN NOD E RISTAMPO
     grafo.rimuoviNodo("Milano");
     grafo.stampa();
 
